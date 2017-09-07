@@ -311,9 +311,14 @@ function hunterking_tags( $number = 5 ) {
 	$tags_object= get_the_tags();
 
 	$html = '';
-	foreach ($tags_object as $key => $value) {
+
+	if ($tags_object) {
+		foreach ($tags_object as $key => $value) {
 			$html .=  '<a href="'.get_site_url().'/tag/'.$value->slug.'" class="tag-link-40 tag-link-position-1" title="1 topic" style="font-size: 8pt;">'.$value->name.'c</a>';
 	}
+	}
+	
+
 	wp_reset_postdata();
 
 	if ( isset( $html ) ) {
